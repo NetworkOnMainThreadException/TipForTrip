@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              tools:context=".RegFragment"
+              android:padding="10dp">
+
+    <EditText android:id="@+id/editTextName"
+              android:hint="Имя"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="10dp"/>
+
+    <EditText android:id="@+id/editTextSurname"
+              android:hint="Фамилия"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="10dp"/>
+
+    <EditText android:id="@+id/editTextEmail"
+              android:hint="E-mail"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="10dp"/>
+
+    <EditText android:id="@+id/editTextPassword"
+              android:hint="Пароль"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="10dp"/>
+
+    <EditText android:id="@+id/editTextPasswordRepeat"
+              android:hint="Повторите пароль"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_margin="10dp"/>
+
+    <Button android:id="@+id/buttonReg"
+            android:text="Зарегистрироваться"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"/>
+
+</LinearLayout>

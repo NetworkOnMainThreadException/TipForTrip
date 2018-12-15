@@ -9,8 +9,6 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_tabs.*
 
 
-
-
 class TabsFragment : Fragment() {
 
     override fun onCreateView(

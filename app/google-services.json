@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "257538314740",
+    "firebase_url": "https://tip-for-trip.firebaseio.com",
+    "project_id": "tip-for-trip",
+    "storage_bucket": "tip-for-trip.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257538314740:android:91a6045d69b6750b",
+        "android_client_info": {
+          "package_name": "networkonmainthreadexception.tipfortrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257538314740-d7ej3cmjucvoiod79oe4cvl6ud3stm45.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1wQ3VYXZDVCAmn5PO8jUW8LjxbHY9b4o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

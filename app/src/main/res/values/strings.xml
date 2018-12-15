@@ -1,6 +1,4 @@
 <resources>
     <string name="app_name">Tip for Trip</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reg"><u>Зарегистрироваться</u></string>
 </resources>
