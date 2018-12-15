@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.*;
 import androidx.fragment.app.Fragment;
 
+import static networkonmainthreadexception.tipfortrip.UiUtilsKt.pushFragment;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,15 +32,20 @@ public class ProfileFragment extends Fragment {
         TextView textViewAboutMe = root.findViewById(R.id.textView4);
         textViewAboutMe.setMovementMethod(new ScrollingMovementMethod());
 
-        //КНопка настройки и обработчик нажатия на эту кнопку
+        //Кнопка настройки и обработчик нажатия на эту кнопку
         Button buttonSetting = root.findViewById(R.id.buttonSetting);
         buttonSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                ImageView imageProfile = root.findViewById(R.id.imageProfile);
 //                imageProfile.setVisibility(View.VISIBLE);
+                pushFragment(getParentFragment().getFragmentManager(), new SettingFragment());
+
             }
         });
+
+        //Кнопка "мои события"
+        Button buttonMyEvent = root.findViewById(R.id.buttonMyEvents);
 
 
 
