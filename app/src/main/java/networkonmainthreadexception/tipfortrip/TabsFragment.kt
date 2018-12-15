@@ -20,7 +20,7 @@ class TabsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         TabsBuilder(viewpager, tabs)
-            .add(EventsFragment(), "События")
+            .add(EventsFragment(), "Маршруты")
             .add(MapFragment(), "Карта")
             .add(ProfileFragment(), "Профиль")
             .build(childFragmentManager)
