@@ -30,7 +30,7 @@ public class ProfileFragment extends Fragment {
         TextView textViewAboutMe = root.findViewById(R.id.textView4);
         textViewAboutMe.setMovementMethod(new ScrollingMovementMethod());
 
-        //КНопка настройки и обработчик нажатия на эту кнопку
+        //Кнопка настройки и обработчик нажатия на эту кнопку
         Button buttonSetting = root.findViewById(R.id.buttonSetting);
         buttonSetting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +39,9 @@ public class ProfileFragment extends Fragment {
 //                imageProfile.setVisibility(View.VISIBLE);
             }
         });
+
+        //Кнопка "мои события"
+        Button buttonMyEvent = root.findViewById(R.id.buttonMyEvents);
 
 
 
