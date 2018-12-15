@@ -7,7 +7,6 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        multiDexEnabled true
         applicationId "networkonmainthreadexception.tipfortrip"
         minSdkVersion 21
         targetSdkVersion 28
