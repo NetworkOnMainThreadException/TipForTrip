@@ -2,6 +2,8 @@ package networkonmainthreadexception.tipfortrip
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -9,9 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.root, TabsFragment())
-            .commit()
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            supportFragmentManager.setFragment(AuthFragment())
+        } else {
+            supportFragmentManager.setFragment(TabsFragment())
+        }
     }
 }
