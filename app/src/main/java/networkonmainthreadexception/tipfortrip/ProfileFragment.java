@@ -46,6 +46,12 @@ public class ProfileFragment extends Fragment {
 
         //Кнопка "мои события"
         Button buttonMyEvent = root.findViewById(R.id.buttonMyEvents);
+        buttonMyEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pushFragment(getParentFragment().getFragmentManager(), new MyEventsFragment());
+            }
+        });
 
 
 
