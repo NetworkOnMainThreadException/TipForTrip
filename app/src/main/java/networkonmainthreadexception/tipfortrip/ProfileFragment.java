@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.*;
 import androidx.fragment.app.Fragment;
 
+import static networkonmainthreadexception.tipfortrip.UiUtilsKt.pushFragment;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,6 +39,8 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
 //                ImageView imageProfile = root.findViewById(R.id.imageProfile);
 //                imageProfile.setVisibility(View.VISIBLE);
+                pushFragment(getParentFragment().getFragmentManager(), new SettingFragment());
+
             }
         });
 
