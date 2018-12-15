@@ -7,9 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_tabs.*
-import networkonmainthreadexception.tipfortrip.R.id.root
-
-
 
 
 class TabsFragment : Fragment() {
