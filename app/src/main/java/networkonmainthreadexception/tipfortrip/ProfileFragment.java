@@ -2,10 +2,12 @@ package networkonmainthreadexception.tipfortrip;
 
 
 import android.os.Bundle;
+import android.os.Message;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.*;
 import androidx.fragment.app.Fragment;
 
 
@@ -23,16 +25,22 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        final View root = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        TextView textViewAboutMe = root.findViewById(R.id.textView4);
+        textViewAboutMe.setMovementMethod(new ScrollingMovementMethod());
 
         //КНопка настройки и обработчик нажатия на эту кнопку
         Button buttonSetting = root.findViewById(R.id.buttonSetting);
         buttonSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                ImageView imageProfile = root.findViewById(R.id.imageProfile);
+//                imageProfile.setVisibility(View.VISIBLE);
             }
         });
+
+
 
 
         return root;
