@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
 import kotlin.Unit;
 
+import static networkonmainthreadexception.tipfortrip.UiUtilsKt.pushFragment;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,10 +56,19 @@ public class RouteDetailFragment extends Fragment {
                 UiUtilsKt.pickDate(getContext(), date -> {
                     dateEvent = date.toString();
                     // пользователь выбрал дату date
+                    //pushFragment(getParentFragment().getFragmentManager(), new );
                     return Unit.INSTANCE;
                 });
 
 
+            }
+        });
+
+        Button join = detail.findViewById(R.id.button6);
+        join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //pushFragment(getParentFragment().getFragmentManager(), new );
             }
         });
 
