@@ -1,6 +1,7 @@
 package networkonmainthreadexception.tipfortrip;
 
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.*;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.UUID;
 
 
 /**
@@ -37,18 +42,38 @@ public class RouteCreationFragment extends Fragment implements OnMapReadyCallbac
         routeItem = getArguments().getParcelable("route");
 
         Button button = root.findViewById(R.id.button);
-        button.setOnClickListener(v -> FirebaseFirestore.getInstance()
+        button.setOnClickListener(v -> uploadPhoto());
+
+        return root;
+    }
+
+    private void uploadPhoto() {
+        Uri file = Uri.fromFile(new File(routeItem.getImageUrl()));
+        StorageReference routesFolder = FirebaseStorage.getInstance().getReference().child("routes");
+        StorageReference fileRef = routesFolder.child(UUID.randomUUID().toString());
+        fileRef.putFile(file).continueWithTask(task -> {
+                    if (!task.isSuccessful()) throw task.getException();
+                    return fileRef.getDownloadUrl();
+                })
+                .addOnSuccessListener(downloadUri -> {
+                    routeItem.setImageUrl(downloadUri.toString());
+                    sendData();
+                })
+                .addOnFailureListener(e -> {
+                    UiUtilsKt.showToast(getContext(), "Ошибка загрузки фото");
+                });
+    }
+
+    private void sendData() {
+        FirebaseFirestore.getInstance()
                 .collection("routes")
                 .add(routeItem)
                 .addOnSuccessListener(doc -> {
                     UiUtilsKt.showToast(getContext(), "Маршрут добавлен");
                     UiUtilsKt.setFragment(getFragmentManager(), new TabsFragment());
                 }).addOnFailureListener(e -> {
-                    UiUtilsKt.showToast(getContext(), "Ошибка добавления");
-                })
-        );
-
-        return root;
+            UiUtilsKt.showToast(getContext(), "Ошибка добавления");
+        });
     }
 
     public static RouteCreationFragment newInstance(RouteItem route) {

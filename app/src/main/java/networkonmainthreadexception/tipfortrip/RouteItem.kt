@@ -7,7 +7,7 @@ import java.util.*
 @Parcelize
 class RouteItem(
     val title: String = "",
-    val imageUrl: String = "",
+    var imageUrl: String = "",
     val previewText: String = "",
     val fullText: String = "",
     val location: String = "",
