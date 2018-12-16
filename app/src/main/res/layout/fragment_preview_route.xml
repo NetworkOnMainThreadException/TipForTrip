@@ -2,18 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
               tools:context=".PreviewRouteFragment" android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
 
     <androidx.appcompat.widget.Toolbar
+            app:title=""
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
             android:theme="?attr/actionBarTheme"
             android:minHeight="?attr/actionBarSize" android:id="@+id/toolbar"/>
-    <com.google.android.gms.maps.MapView
+    <fragment
             android:layout_width="match_parent"
-            android:layout_height="match_parent" android:id="@+id/mapView"/>
+            android:layout_height="match_parent"
+            android:id="@+id/mapView"
+            tools:context=".MapsActivity"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+    />
 </LinearLayout>
