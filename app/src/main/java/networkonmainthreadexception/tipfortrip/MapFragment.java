@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -32,14 +31,22 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         // Add a marker in Sydney, Australia, and move the camera.
-        LatLng sydney = new LatLng(55.7, 37.4);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Moscow"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        CameraUpdateFactory.zoomTo(10);
+
+        UtilsKt.getRoutes().addOnSuccessListener(routeItems -> {
+            for (RouteItem item:routeItems){
+
+                UtilsKt.getPoints(item.getPointsId()).addOnSuccessListener(points->{
+                    LatLng lat = points.get(0);
+                    mMap.addMarker(new MarkerOptions().position(lat).title(item.getTitle()));
+                });
+
+            }
+        });
     }
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+
         return false;
     }
 

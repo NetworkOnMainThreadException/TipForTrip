@@ -2,6 +2,9 @@ package networkonmainthreadexception.tipfortrip;
 
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -65,12 +68,10 @@ public class RouteDetailFragment extends Fragment {
             }
         });
 
-        Button join = detail.findViewById(R.id.button6);
-        join.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //pushFragment(getParentFragment().getFragmentManager(), new );
-            }
+        Button button = detail.findViewById(R.id.view_on_map_button);
+        button.setOnClickListener(v -> {
+                PreviewRouteFragment toFragment = PreviewRouteFragment.newInstance(route);
+                UiUtilsKt.pushFragment(getFragmentManager(), toFragment);
         });
 
         return detail;
