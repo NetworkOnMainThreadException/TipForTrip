@@ -17,3 +17,9 @@ inline fun <reified T : Model> QuerySnapshot.toObjectsWithId() =
 
 fun DocumentSnapshot.toProfile() =
     toObjectWithId<Profile>()
+
+fun getUser(id: String) = db
+    .collection("users")
+    .document(id)
+    .get()
+    .continueWith { it -> it.result!!.toProfile() }
