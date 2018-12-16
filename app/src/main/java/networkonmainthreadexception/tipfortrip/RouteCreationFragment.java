@@ -108,7 +108,6 @@ public class RouteCreationFragment extends Fragment implements OnMapReadyCallbac
         marker.remove();
         ArrayList<LatLng> list = (ArrayList<LatLng>) polyline.getPoints();
         list.remove(marker.getPosition());
-
         polyline.setPoints(list);
         return false;
     }
