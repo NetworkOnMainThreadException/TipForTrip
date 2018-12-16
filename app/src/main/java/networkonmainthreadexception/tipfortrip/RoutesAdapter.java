@@ -50,7 +50,7 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
 
         holder.itemView.setOnClickListener(view ->
         {
-            RouteDetailFragment toFragment = RouteDetailFragment.newInstance(routeItem.getTitle(), routeItem.getFullText(), routeItem.getImageUrl(), routeItem.getPublishDate().toString(), routeItem.getLocation());
+            RouteDetailFragment toFragment = RouteDetailFragment.newInstance(routeItem);
             UiUtilsKt.pushFragment(fragmentManager, toFragment);
         });
     }
