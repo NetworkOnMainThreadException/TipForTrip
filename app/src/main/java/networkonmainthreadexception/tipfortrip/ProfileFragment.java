@@ -2,15 +2,16 @@ package networkonmainthreadexception.tipfortrip;
 
 
 import android.os.Bundle;
-import android.os.Message;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import androidx.fragment.app.Fragment;
+import com.google.firebase.auth.FirebaseAuth;
 
 import static networkonmainthreadexception.tipfortrip.UiUtilsKt.pushFragment;
+import static networkonmainthreadexception.tipfortrip.UtilsKt.getUser;
 
 
 /**
@@ -53,15 +54,16 @@ public class ProfileFragment extends Fragment {
             }
         });
 
+        TextView textViewProfile = root.findViewById(R.id.textViewProfile);
 
+        String uid = FirebaseAuth.getInstance().getUid(); // uid of current user
 
+        getUser(uid).addOnSuccessListener(user -> {
+            textViewProfile.setText(user.getName());
+        });
 
         return root;
     }
-
-
-
-
 
 
 }

@@ -9,11 +9,14 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_tabs.*
 
 
+
+
 class TabsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
         return inflater.inflate(R.layout.fragment_tabs, container, false)
     }
@@ -25,7 +28,7 @@ class TabsFragment : Fragment() {
             .add(ProfileFragment(), "Профиль")
             .build(childFragmentManager)
         Plus.setOnClickListener {
-
+            pushFragment(fragmentManager!!, RouteCreationFragment());
         }
     }
 
