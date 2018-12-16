@@ -24,7 +24,7 @@ class TabsFragment : Fragment() {
 
         viewPager.adapter = ViewPagerAdapter(
             childFragmentManager,
-            "Маршруты" to EventsFragment(),
+            "Маршруты" to RouteListFragment(),
             "Карта" to MapFragment(),
             "Профиль" to ProfileFragment()
         )

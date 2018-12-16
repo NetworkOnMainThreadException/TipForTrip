@@ -82,5 +82,6 @@ public class RouteDetailFragment extends Fragment {
         RouteDetailFragment fragment = new RouteDetailFragment();
         fragment.setArguments(args);
         return fragment;
+
     }
 }

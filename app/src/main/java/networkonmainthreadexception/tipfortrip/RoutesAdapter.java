@@ -31,7 +31,7 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
     @Override
     public RoutesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(
-                inflater.inflate(R.layout.fragment_event_item, parent, false)
+                inflater.inflate(R.layout.fragment_route_item, parent, false)
         );
     }
 
