@@ -56,7 +56,8 @@ public class RouteDetailFragment extends Fragment {
                 UiUtilsKt.pickDate(getContext(), date -> {
                     dateEvent = date.toString();
                     // пользователь выбрал дату date
-                    //pushFragment(getParentFragment().getFragmentManager(), new );
+                    pushFragment(getFragmentManager(),
+                            CreateNewEventFragmentKt.newInstance(route.getId(), date.getTime()));
                     return Unit.INSTANCE;
                 });
 
