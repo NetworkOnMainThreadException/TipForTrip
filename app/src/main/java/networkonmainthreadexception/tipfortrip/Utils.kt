@@ -23,3 +23,8 @@ fun getUser(id: String) = db
     .document(id)
     .get()
     .continueWith { it -> it.result!!.toProfile() }
+
+fun getRoutes() = db
+    .collection("routes")
+    .get()
+    .continueWith { it.result!!.toObjectsWithId<RouteItem>() }

@@ -70,8 +70,8 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             routeLocation = itemView.findViewById(R.id.route_location);
-            routePreviewText = itemView.findViewById(R.id.route_title);
-            routeTitle = itemView.findViewById(R.id.route_prev_text);
+            routePreviewText = itemView.findViewById(R.id.route_prev_text);
+            routeTitle = itemView.findViewById(R.id.route_title);
             routeImage = itemView.findViewById(R.id.route_image);
         }
     }

@@ -6,10 +6,10 @@ import java.util.*
 
 @Parcelize
 class RouteItem(
-    val title: String,
-    val imageUrl: String,
-    val previewText: String,
-    val fullText: String,
-    val location: String,
-    val publishDate: Date
-) : Parcelable
+    val title: String = "",
+    val imageUrl: String = "",
+    val previewText: String = "",
+    val fullText: String = "",
+    val location: String = "",
+    val publishDate: Date = Date(0)
+) : Parcelable, Model()
