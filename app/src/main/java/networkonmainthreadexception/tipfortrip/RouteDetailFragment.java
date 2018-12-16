@@ -74,6 +74,10 @@ public class RouteDetailFragment extends Fragment {
                 UiUtilsKt.pushFragment(getFragmentManager(), toFragment);
         });
 
+        detail.findViewById(R.id.buttonJoin).setOnClickListener(v -> {
+            UiUtilsKt.pushFragment(getFragmentManager(), EventListFragmentKt.newInstance(route.getId()));
+        });
+
         return detail;
     }
 

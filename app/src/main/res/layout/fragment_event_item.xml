@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
-              android:layout_height="match_parent"
+              android:layout_height="wrap_content"
               xmlns:tools="http://schemas.android.com/tools"
-              android:orientation="vertical">
+              android:orientation="vertical"
+              android:padding="20dp">
 
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   tools:text="Команда K"
                   android:id="@+id/events_item_title"/>
 
-
         <TextView android:layout_width="match_parent"
                   android:layout_height="wrap_content"
                   tools:text="4"
                   android:textAlignment="textEnd"
                   android:id="@+id/events_members_count"/>
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  tools:text="... список участников ..."
+                  android:id="@+id/events_members_list"/>
 
 </LinearLayout>

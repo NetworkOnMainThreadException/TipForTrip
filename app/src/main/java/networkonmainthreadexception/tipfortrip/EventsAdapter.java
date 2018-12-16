@@ -35,9 +35,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final EventItem eventItem = itemList.get(position);
-
         holder.eventTitle.setText(eventItem.getEventTitle());
-        holder.eventMemberCount.setText(eventItem.getMembers().size());
+        holder.eventMemberCount.setText("Число участников: " + eventItem.getMembers().size());
+        if (eventItem.getMembers().size() > 0) {
+            holder.eventMemberList.setText(EventListFragmentKt.join(", ", eventItem.getMembers()));
+        }
     }
 
     @Override
@@ -48,12 +50,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.ViewHolder
     static class ViewHolder extends RecyclerView.ViewHolder{
         final TextView eventTitle;
         final TextView eventMemberCount;
-
+        final TextView eventMemberList;
 
         public ViewHolder(@NonNull View itemView){
             super(itemView);
             eventTitle = itemView.findViewById(R.id.events_item_title);
             eventMemberCount = itemView.findViewById(R.id.events_members_count);
+            eventMemberList = itemView.findViewById(R.id.events_members_list);
         }
     }
 }
