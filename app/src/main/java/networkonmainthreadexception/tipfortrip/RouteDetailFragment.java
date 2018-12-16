@@ -35,28 +35,20 @@ public class RouteDetailFragment extends Fragment {
         TextView routeLocation = detail.findViewById(R.id.detail_route_location);
         TextView routeDate = detail.findViewById(R.id.detail_route_pub_date);
 
-
-        tb.setTitle(getArguments().getString("Title"));
-        routeText.setText(getArguments().getString("FullText"));
-        routeLocation.setText(getArguments().getString("Location"));
-        routeDate.setText(getArguments().getString("Date"));
-        Glide.with(detail.getContext()).load(getArguments().getString("ImageUrl")).into(routeImage);
-
+        final RouteItem route = getArguments().getParcelable("route");
+        tb.setTitle(route.getTitle());
+        routeText.setText(route.getFullText());
+        routeLocation.setText(route.getLocation());
+        routeDate.setText(route.getPublishDate().toString());
+        Glide.with(detail.getContext()).load(route.getImageUrl()).into(routeImage);
 
         return detail;
     }
 
 
-    public static RouteDetailFragment newInstance(String title, String full, String image, String date, String location) {
-
+    public static RouteDetailFragment newInstance(RouteItem route) {
         Bundle args = new Bundle();
-
-        args.putString("Title", title);
-        args.putString("FullText", full);
-        args.putString("ImageUrl", image);
-        args.putString("Date", date);
-        args.putString("Location", location);
-
+        args.putParcelable("route", route);
         RouteDetailFragment fragment = new RouteDetailFragment();
         fragment.setArguments(args);
         return fragment;
