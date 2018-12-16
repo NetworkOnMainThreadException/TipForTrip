@@ -23,9 +23,10 @@ class TabsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         viewPager.adapter = ViewPagerAdapter(
-            fragmentManager,
-            listOf(EventsFragment(), MapFragment(), ProfileFragment()),
-            listOf("Маршруты", "Карта", "Профиль")
+            childFragmentManager,
+            "Маршруты" to EventsFragment(),
+            "Карта" to MapFragment(),
+            "Профиль" to ProfileFragment()
         )
 
         bottomNavigation.setOnNavigationItemSelectedListener {
@@ -55,8 +56,6 @@ class TabsFragment : Fragment() {
             override fun onPageScrollStateChanged(state: Int) {
 
             }
-
-
         })
 
         Plus.setOnClickListener {

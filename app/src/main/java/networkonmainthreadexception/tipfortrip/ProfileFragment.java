@@ -56,13 +56,13 @@ public class ProfileFragment extends Fragment {
         //Кнопка настройки и обработчик нажатия на эту кнопку
         Button buttonSetting = root.findViewById(R.id.buttonSetting);
         buttonSetting.setOnClickListener(v -> {
-            pushFragment(getFragmentManager(), new SettingFragment());
+            pushFragment(getParentFragment().getFragmentManager(), new SettingFragment());
         });
 
         //Кнопка "мои события"
         Button buttonMyEvent = root.findViewById(R.id.buttonMyEvents);
         buttonMyEvent.setOnClickListener(v -> {
-            pushFragment(getFragmentManager(), new MyEventsFragment());
+            pushFragment(getParentFragment().getFragmentManager(), new MyEventsFragment());
         });
 
         TextView textViewName = root.findViewById(R.id.textViewName);
@@ -116,7 +116,7 @@ public class ProfileFragment extends Fragment {
                 .update(temp)
                 .addOnSuccessListener(doc -> {
                     UiUtilsKt.showToast(getContext(), "Фото добавлено");
-                    UiUtilsKt.setFragment(getFragmentManager(), new ProfileFragment());
+                    UiUtilsKt.setFragment(getParentFragment().getFragmentManager(), new ProfileFragment());
                 }).addOnFailureListener(e -> {
             UiUtilsKt.showToast(getContext(), "Ошибка добавления");
         });

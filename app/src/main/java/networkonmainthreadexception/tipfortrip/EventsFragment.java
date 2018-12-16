@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class EventsFragment extends Fragment {
+
     public EventsFragment(){
 
     }
@@ -21,7 +22,7 @@ public class EventsFragment extends Fragment {
 
         UtilsKt.getRoutes().addOnSuccessListener( routes-> {
             RecyclerView recyclerView = root.findViewById(R.id.recycler_fragment);
-            recyclerView.setAdapter(new RoutesAdapter(root.getContext(), routes, getFragmentManager()));
+            recyclerView.setAdapter(new RoutesAdapter(root.getContext(), routes, getParentFragment().getFragmentManager()));
 
             recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
@@ -32,11 +33,6 @@ public class EventsFragment extends Fragment {
         }).addOnFailureListener(e -> {
             UiUtilsKt.showToast(root.getContext(), "Ошибка загрузки");
         });
-
-
-
-
-
 
         return root;
     }
