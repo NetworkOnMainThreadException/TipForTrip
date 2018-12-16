@@ -5,9 +5,12 @@
              android:layout_height="match_parent"
              tools:context=".SettingFragment">
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Fragment settings"/>
+    <Button
+            android:layout_margin="0dp"
+            android:text="Выйти"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button3"/>
 
 </FrameLayout>

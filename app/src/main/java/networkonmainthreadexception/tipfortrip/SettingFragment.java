@@ -2,10 +2,13 @@ package networkonmainthreadexception.tipfortrip;
 
 
 import android.os.Bundle;
+import android.widget.Button;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import static networkonmainthreadexception.tipfortrip.UiUtilsKt.pushFragment;
 
 
 /**
@@ -23,7 +26,17 @@ public class SettingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setting, container, false);
+        final View root =  inflater.inflate(R.layout.fragment_setting, container, false);
+
+        Button exit = root.findViewById(R.id.button3);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pushFragment(getFragmentManager(), new AuthFragment());
+            }
+        });
+
+        return root;
     }
 
 }
