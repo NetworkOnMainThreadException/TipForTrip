@@ -47,13 +47,20 @@ public class ProfileFragment extends Fragment {
 
         //Кнопка "мои события"
         Button buttonMyEvent = root.findViewById(R.id.buttonMyEvents);
+        buttonMyEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pushFragment(getParentFragment().getFragmentManager(), new MyEventsFragment());
+            }
+        });
 
         TextView textViewProfile = root.findViewById(R.id.textViewProfile);
 
+        String name = "";
         String uid = FirebaseAuth.getInstance().getUid(); // uid of current user
 
         getUser(uid).addOnSuccessListener(user -> {
-            textViewProfile.setText(user.getName());
+            textViewProfile.setText(user.getName() + " " + user.getSurname());
         });
 
         return root;
