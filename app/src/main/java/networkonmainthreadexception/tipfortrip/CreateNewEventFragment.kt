@@ -40,8 +40,9 @@ class CreateNewEventFragment : Fragment() {
             })
         }
         buttonSave.setOnClickListener {
+            val title = editTextTitle.text.toString().trim()
             val goods = chipGroupGoods.getChildren<Chip>().map { it.text.toString().trim() }
-            val event = EventItem(emptyList(), goods, date, routeId)
+            val event = EventItem(title, emptyList(), goods, date, routeId)
             FirebaseFirestore.getInstance().collection("events")
                 .add(event).addOnSuccessListener {
                     context?.showToast("Событие добавлено")

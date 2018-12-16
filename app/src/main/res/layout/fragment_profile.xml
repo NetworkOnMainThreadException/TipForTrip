@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -8,41 +7,45 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:gravity="center_horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context=".ProfileFragment" android:orientation="vertical">
+            android:layout_height="wrap_content"
+            tools:context=".ProfileFragment"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
 
-        <!-- TODO: Update blank fragment layout -->
         <Button
+                android:text="Настройки"
                 android:layout_gravity="end"
                 android:layout_margin="20dp"
-                android:layout_width="28dp"
-                android:layout_height="29dp" android:id="@+id/buttonSetting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/buttonSetting"
                 android:visibility="visible" android:background="@drawable/baseline_settings_black_18dp"/>
 
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
                       android:orientation="horizontal">
-            <ImageView
-                    android:layout_gravity="left"
 
+            <ImageView
+                    android:layout_gravity="start"
                     android:src="@drawable/icon_user_640x640"
                     android:layout_width="151dp"
                     android:layout_height="122dp"
                     android:id="@+id/imageProfile"/>
 
-
-            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="match_parent"
                           android:orientation="vertical">
+
                 <TextView
                         android:id="@+id/textViewName"
                         android:gravity="center"
-                        android:layout_margin="0dp"
-                        android:layout_gravity="right"
+                        android:layout_gravity="end"
                         android:text="Ivan"
                         android:layout_width="match_parent"
-                        android:layout_height="59dp"
+                        android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:textColor="#000"
                         android:textSize="30sp"/>
+
                 <TextView
                         android:text="Ivanov"
                         android:gravity="center"
@@ -50,10 +53,12 @@
                         android:textColor="#000"
                         android:textSize="30sp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/textViewSurName"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textViewSurName"
                         android:layout_weight="1"/>
             </LinearLayout>
         </LinearLayout>
+
         <TextView
                 android:gravity="center"
                 android:text="8 960 905 99 88"
@@ -89,12 +94,12 @@
         </LinearLayout>
         <Button
                 android:layout_gravity="center"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:text="My events"
                 android:layout_width="294dp"
                 android:layout_height="wrap_content" android:id="@+id/buttonMyEvents"/>
         <TextView
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:textStyle="bold"
                 android:textColor="#000"
                 android:text="Весной 1763 года герцог Этьен Франсуа де Шуазель, ужиная в генуэзском посольстве, допустил оплошность, расхвалив поданные блюда. Посол, желая угодить высокому гостю, предложил герцогу воспользоваться услугами своего повара, пообещав нынче же прислать того в дом вельможи.
