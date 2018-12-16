@@ -2,7 +2,7 @@ package networkonmainthreadexception.tipfortrip
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import java.util.Date
+import java.util.*
 
 @Parcelize
 class RouteItem(
