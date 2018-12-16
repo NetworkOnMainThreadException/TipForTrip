@@ -56,7 +56,12 @@ class TabsFragment : Fragment() {
 
             }
 
+
         })
+
+        Plus.setOnClickListener {
+            pushFragment(fragmentManager!!, CreateNewRouteFragment());
+        }
     }
 
 }

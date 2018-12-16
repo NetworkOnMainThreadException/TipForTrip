@@ -35,32 +35,28 @@ public class ProfileFragment extends Fragment {
 
         //Кнопка настройки и обработчик нажатия на эту кнопку
         Button buttonSetting = root.findViewById(R.id.buttonSetting);
-        buttonSetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                ImageView imageProfile = root.findViewById(R.id.imageProfile);
-//                imageProfile.setVisibility(View.VISIBLE);
-                pushFragment(getParentFragment().getFragmentManager(), new SettingFragment());
-
-            }
+        buttonSetting.setOnClickListener(v -> {
+            pushFragment(getFragmentManager(), new SettingFragment());
         });
 
         //Кнопка "мои события"
         Button buttonMyEvent = root.findViewById(R.id.buttonMyEvents);
-        buttonMyEvent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pushFragment(getParentFragment().getFragmentManager(), new MyEventsFragment());
-            }
+        buttonMyEvent.setOnClickListener(v -> {
+            pushFragment(getFragmentManager(), new MyEventsFragment());
         });
 
-        TextView textViewProfile = root.findViewById(R.id.textViewProfile);
+        TextView textViewName = root.findViewById(R.id.textViewName);
+        TextView textViewSurName = root.findViewById(R.id.textViewSurName);
 
         String name = "";
         String uid = FirebaseAuth.getInstance().getUid(); // uid of current user
 
         getUser(uid).addOnSuccessListener(user -> {
-            textViewProfile.setText(user.getName() + " " + user.getSurname());
+            textViewName.setText(user.getName());
+        });
+
+        getUser(uid).addOnSuccessListener(user -> {
+            textViewSurName.setText(user.getSurname());
         });
 
         return root;
