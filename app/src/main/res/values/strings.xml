@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Tip for Trip</string>
-    <string name="reg"><u>Зарегистрироваться</u></string>
+    <string name="reg">
+        <u>Зарегистрироваться</u>
+    </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="view_on_map">View on map</string>
+    <string name="create_event">Create event</string>
 </resources>

@@ -1,15 +1,19 @@
 package networkonmainthreadexception.tipfortrip;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
+import javax.security.auth.DestroyFailedException;
 import java.util.List;
 
 public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder> {
@@ -17,8 +21,10 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
     private final List<RouteItem> routeItems;
     private final Context context;
     private final LayoutInflater inflater;
+    private final FragmentManager fragmentManager;
 
-    public RoutesAdapter(Context context, List<RouteItem> routes){
+    public RoutesAdapter(Context context, List<RouteItem> routes, FragmentManager fragmentManager){
+        this.fragmentManager = fragmentManager;
         this.context = context;
         this.routeItems = routes;
         this.inflater = LayoutInflater.from(context);
@@ -34,7 +40,7 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull RoutesAdapter.ViewHolder holder, int position) {
-        RouteItem routeItem = routeItems.get(position);
+        final RouteItem routeItem = routeItems.get(position);
 
         holder.routeTitle.setText(routeItem.getTitle());
         holder.routePreviewText.setText(routeItem.getPreviewText());
@@ -42,7 +48,11 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
 
         Glide.with(context).load(routeItem.getImageUrl()).into(holder.routeImage);
 
-        //holder.itemView.setOnClickListener();
+        holder.itemView.setOnClickListener(view ->
+        {
+            RouteDetailFragment toFragment = RouteDetailFragment.newInstance(routeItem.getTitle(), routeItem.getFullText(), routeItem.getImageUrl(), routeItem.getPublishDate().toString(), routeItem.getLocation());
+            UiUtilsKt.pushFragment(fragmentManager, toFragment);
+        });
     }
 
     @Override

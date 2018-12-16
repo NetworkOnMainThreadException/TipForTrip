@@ -21,13 +21,15 @@ public class EventsFragment extends Fragment {
         final View root = inflater.inflate(R.layout.fragment_events, container, false);
 
         RecyclerView recyclerView = root.findViewById(R.id.recycler_fragment);
-        recyclerView.setAdapter(new RoutesAdapter(root.getContext(), DataUtils.generateNews()));
+        recyclerView.setAdapter(new RoutesAdapter(root.getContext(), DataUtils.generateNews(), getFragmentManager()));
 
         recyclerView.setLayoutManager(new LinearLayoutManager(root.getContext()));
 
         DividerItemDecoration decoration = new DividerItemDecoration(recyclerView.getContext(), 1);
         decoration.setDrawable(ContextCompat.getDrawable(root.getContext(), R.drawable.list_divider));
         recyclerView.addItemDecoration(decoration);
+
+
 
         return root;
     }

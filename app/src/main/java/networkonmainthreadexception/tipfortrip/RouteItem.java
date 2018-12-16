@@ -1,6 +1,7 @@
 package networkonmainthreadexception.tipfortrip;
 
 import java.util.Date;
+import java.util.List;
 
 public class RouteItem {
 
@@ -10,6 +11,8 @@ public class RouteItem {
     private final String FULL_TEXT;
     private final String LOCATION;
     private final Date PUBLISH_DATE;
+    private final List<String> GOODS;
+    private final List<EventItem> EVENTS;
 
     public RouteItem(String title,
                      String imageUrl,
@@ -23,6 +26,8 @@ public class RouteItem {
         this.PREVIEW_TEXT = previewText;
         this.PUBLISH_DATE = publishDate;
         this.TITLE = title;
+        this.GOODS = null;
+        this.EVENTS = null;
     }
 
     public String getTitle(){ return TITLE; }
@@ -31,4 +36,6 @@ public class RouteItem {
     public String getPreviewText() { return PREVIEW_TEXT; }
     public String getLocation() { return LOCATION; }
     public String getImageUrl() { return IMAGE_URL; }
+    public List<String> getGoods() { return GOODS; }
+    public List<EventItem> getEvents() { return EVENTS; }
 }
