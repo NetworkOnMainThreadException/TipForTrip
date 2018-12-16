@@ -59,6 +59,8 @@ public class ProfileFragment extends Fragment {
             textViewSurName.setText(user.getSurname());
         });
 
+        //ImageButton imageButton = root.findViewById(R.id.buttonSetting);
+
         return root;
     }
 

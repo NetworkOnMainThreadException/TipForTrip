@@ -21,12 +21,19 @@
 
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="horizontal">
-            <ImageView
-                    android:visibility="visible"
+            <!--<ImageView-->
+                    <!--android:layout_gravity="left"-->
+                    <!--android:src="@drawable/icon_user_640x640"-->
+                    <!--android:layout_width="151dp"-->
+                    <!--android:layout_height="122dp" -->
+                    <!--android:id="@+id/imageProfile"/>-->
+
+            <ImageButton
                     android:layout_gravity="left"
-                    android:src="@drawable/icon_user_640x640"
                     android:layout_width="151dp"
-                    android:layout_height="122dp" android:id="@+id/imageProfile"/>
+                    android:layout_height="122dp"
+                    app:srcCompat="@drawable/icon_user_640x640"
+                    android:id="@+id/imageButton"/>
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
                           android:orientation="vertical">
