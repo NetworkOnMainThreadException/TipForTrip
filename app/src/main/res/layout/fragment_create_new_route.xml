@@ -19,12 +19,6 @@
                   android:layout_height="wrap_content"
                   android:layout_margin="10dp"/>
 
-        <!--<Button-->
-                <!--android:text="Выбрать дату"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:id="@+id/calendarButton"/>-->
-
         <EditText android:id="@+id/editLOCATION"
                   android:hint="Место"
                   android:layout_width="match_parent"

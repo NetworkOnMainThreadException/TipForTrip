@@ -2,6 +2,7 @@ package networkonmainthreadexception.tipfortrip;
 
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.widget.Toolbar;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.bumptech.glide.Glide;
+import kotlin.Unit;
 
 
 /**
@@ -22,6 +24,8 @@ public class RouteDetailFragment extends Fragment {
         // Required empty public constructor
     }
 
+
+    String dateEvent = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +45,21 @@ public class RouteDetailFragment extends Fragment {
         routeLocation.setText(route.getLocation());
         routeDate.setText(route.getPublishDate().toString());
         Glide.with(detail.getContext()).load(route.getImageUrl()).into(routeImage);
+
+        Button createCalendar = detail.findViewById(R.id.detail_route_create_event);
+
+        createCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UiUtilsKt.pickDate(getContext(), date -> {
+                    dateEvent = date.toString();
+                    // пользователь выбрал дату date
+                    return Unit.INSTANCE;
+                });
+
+
+            }
+        });
 
         return detail;
     }
