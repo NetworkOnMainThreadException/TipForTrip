@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/events" android:title="Маршруты" />
-    <item android:id="@+id/map" android:title="Карта" />
-    <item android:id="@+id/profile" android:title="Профиль" />
+    <item android:id="@+id/events" android:title="Маршруты" android:icon="@drawable/ic_route" />
+    <item android:id="@+id/map" android:title="Карта" android:icon="@drawable/ic_map" />
+    <item android:id="@+id/profile" android:title="Профиль" android:icon="@drawable/ic_profile" />
 </menu>
