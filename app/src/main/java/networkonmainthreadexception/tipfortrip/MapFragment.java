@@ -31,11 +31,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleM
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
         // Add a marker in Sydney, Australia, and move the camera.
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(55.7, 37.4);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Moscow"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        CameraUpdateFactory.zoomTo(10);
     }
 
     @Override
