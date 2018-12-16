@@ -1,7 +1,9 @@
 package networkonmainthreadexception.tipfortrip
 
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.GeoPoint
 import com.google.firebase.firestore.QuerySnapshot
 
 val db by lazy { FirebaseFirestore.getInstance() }
@@ -28,3 +30,16 @@ fun getRoutes() = db
     .collection("routes")
     .get()
     .continueWith { it.result!!.toObjectsWithId<RouteItem>() }
+
+fun getPoints(id: String) = db
+    .collection("points")
+    .document(id)
+    .get()
+    .continueWith {
+        it.result!!.toObject(RoutePointsItem::class.java)!!.points
+            .map { LatLng(it.latitude, it.longitude) }
+    }
+
+fun setPoints(points: List<LatLng>) = db
+    .collection("points")
+    .add(RoutePointsItem(points.map { GeoPoint(it.latitude, it.longitude) }))

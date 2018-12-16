@@ -70,7 +70,7 @@ public class CreateNewRouteFragment extends Fragment {
                 return;
             }
 
-            RouteItem routeItem = new RouteItem(title, imageUrl, previewText, fullText, location, publishDate );
+            RouteItem routeItem = new RouteItem(title, imageUrl, previewText, fullText, location, publishDate, "");
 
             pushFragment(getFragmentManager(), RouteCreationFragment.newInstance(routeItem));
         });

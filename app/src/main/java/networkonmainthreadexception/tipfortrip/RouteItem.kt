@@ -11,5 +11,6 @@ class RouteItem(
     val previewText: String = "",
     val fullText: String = "",
     val location: String = "",
-    val publishDate: Date = Date(0)
+    val publishDate: Date = Date(0),
+    var pointsId: String = ""
 ) : Parcelable, Model()

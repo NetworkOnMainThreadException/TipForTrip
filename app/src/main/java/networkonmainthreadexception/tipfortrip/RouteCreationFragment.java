@@ -28,7 +28,7 @@ public class RouteCreationFragment extends Fragment implements OnMapReadyCallbac
 
     private GoogleMap mMap;
     private Polyline polyline;
-    RouteItem routeItem;
+    private RouteItem routeItem;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,23 +57,35 @@ public class RouteCreationFragment extends Fragment implements OnMapReadyCallbac
                 })
                 .addOnSuccessListener(downloadUri -> {
                     routeItem.setImageUrl(downloadUri.toString());
-                    sendData();
+                    sendPoints();
                 })
                 .addOnFailureListener(e -> {
                     UiUtilsKt.showToast(getContext(), "Ошибка загрузки фото");
                 });
     }
 
-    private void sendData() {
+    private void sendPoints() {
+        UtilsKt.setPoints(polyline.getPoints())
+                .addOnSuccessListener(doc -> {
+                    routeItem.setPointsId(doc.getId());
+                    sendRoute();
+                })
+                .addOnFailureListener(e -> {
+                    UiUtilsKt.showToast(getContext(), "Ошибка добавления точек");
+                });
+    }
+
+    private void sendRoute() {
         FirebaseFirestore.getInstance()
                 .collection("routes")
                 .add(routeItem)
                 .addOnSuccessListener(doc -> {
                     UiUtilsKt.showToast(getContext(), "Маршрут добавлен");
                     UiUtilsKt.setFragment(getFragmentManager(), new TabsFragment());
-                }).addOnFailureListener(e -> {
-            UiUtilsKt.showToast(getContext(), "Ошибка добавления");
-        });
+                })
+                .addOnFailureListener(e -> {
+                    UiUtilsKt.showToast(getContext(), "Ошибка добавления маршрута");
+                });
     }
 
     public static RouteCreationFragment newInstance(RouteItem route) {
