@@ -67,12 +67,13 @@ public class CreateNewRouteFragment extends Fragment {
                     location.isEmpty() ||
                     previewText.isEmpty()
                     ) {
-                // доделать
+                UiUtilsKt.showToast(getContext(), "Заполните все поля");
+                return;
             }
 
             RouteItem routeItem = new RouteItem(title, imageUrl, previewText, fullText, location, publishDate );
 
-            pushFragment(getParentFragment().getFragmentManager(), new RouteCreationFragment());
+            pushFragment(getFragmentManager(), new RouteCreationFragment());
         });
 
 

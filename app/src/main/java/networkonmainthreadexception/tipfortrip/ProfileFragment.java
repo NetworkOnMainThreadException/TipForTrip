@@ -35,23 +35,14 @@ public class ProfileFragment extends Fragment {
 
         //Кнопка настройки и обработчик нажатия на эту кнопку
         Button buttonSetting = root.findViewById(R.id.buttonSetting);
-        buttonSetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                ImageView imageProfile = root.findViewById(R.id.imageProfile);
-//                imageProfile.setVisibility(View.VISIBLE);
-                pushFragment(getParentFragment().getFragmentManager(), new SettingFragment());
-
-            }
+        buttonSetting.setOnClickListener(v -> {
+            pushFragment(getFragmentManager(), new SettingFragment());
         });
 
         //Кнопка "мои события"
         Button buttonMyEvent = root.findViewById(R.id.buttonMyEvents);
-        buttonMyEvent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pushFragment(getParentFragment().getFragmentManager(), new MyEventsFragment());
-            }
+        buttonMyEvent.setOnClickListener(v -> {
+            pushFragment(getFragmentManager(), new MyEventsFragment());
         });
 
         TextView textViewName = root.findViewById(R.id.textViewName);
