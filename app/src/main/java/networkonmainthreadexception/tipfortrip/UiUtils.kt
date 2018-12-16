@@ -26,23 +26,35 @@ fun pushFragment(fragmentManager: FragmentManager, fragment: Fragment) {
         .commit()
 }
 
-fun pickDateUntil(context: Context, listener: (Date) -> Unit, maxDate: Date?) {
+fun pickDateInRange(
+    context: Context, listener: (Date) -> Unit,
+    minDate: Date? = null, maxDate: Date? = null
+) {
     val c = Calendar.getInstance() // default date
     val dialog = DatePickerDialog(
         context, 0,
         { _, y, m, d -> listener(GregorianCalendar(y, m, d).time) },
         c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH)
     )
+    if (minDate != null) {
+        dialog.datePicker.minDate = minDate.time
+    }
     if (maxDate != null) {
-        dialog.datePicker.maxDate = maxDate.getTime()
+        dialog.datePicker.maxDate = maxDate.time
     }
     dialog.show()
 }
 
+fun now() = Calendar.getInstance().time
+
 fun pickDateUntilNow(context: Context, listener: (Date) -> Unit) {
-    pickDateUntil(context, listener, Calendar.getInstance().time)
+    pickDateInRange(context, listener, maxDate = now())
+}
+
+fun pickDateFromNow(context: Context, listener: (Date) -> Unit) {
+    pickDateInRange(context, listener, minDate = now())
 }
 
 fun pickDate(context: Context, listener: (Date) -> Unit) {
-    pickDateUntil(context, listener, null)
+    pickDateInRange(context, listener)
 }
