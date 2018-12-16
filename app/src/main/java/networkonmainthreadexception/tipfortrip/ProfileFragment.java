@@ -54,13 +54,18 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        TextView textViewProfile = root.findViewById(R.id.textViewProfile);
+        TextView textViewName = root.findViewById(R.id.textViewName);
+        TextView textViewSurName = root.findViewById(R.id.textViewSurName);
 
         String name = "";
         String uid = FirebaseAuth.getInstance().getUid(); // uid of current user
 
         getUser(uid).addOnSuccessListener(user -> {
-            textViewProfile.setText(user.getName() + " " + user.getSurname());
+            textViewName.setText(user.getName());
+        });
+
+        getUser(uid).addOnSuccessListener(user -> {
+            textViewSurName.setText(user.getSurname());
         });
 
         return root;

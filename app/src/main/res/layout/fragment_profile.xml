@@ -27,27 +27,40 @@
                     android:src="@drawable/icon_user_640x640"
                     android:layout_width="151dp"
                     android:layout_height="122dp" android:id="@+id/imageProfile"/>
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
                           android:orientation="vertical">
                 <TextView
-                        android:id="@+id/textViewProfile"
+                        android:id="@+id/textViewName"
                         android:gravity="center"
                         android:layout_margin="0dp"
                         android:layout_gravity="right"
-                        android:text="Ivan Ivanov"
+                        android:text="Ivan"
                         android:layout_width="match_parent"
                         android:layout_height="59dp"
                         android:textStyle="bold"
                         android:textColor="#000"
                         android:textSize="30sp"/>
                 <TextView
+                        android:text="Ivanov"
                         android:gravity="center"
-                        android:text="8 960 905 99 88"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:textSize="30sp"
                         android:layout_width="match_parent"
-                        android:layout_height="63dp" android:id="@+id/textView5" android:layout_weight="1"
-                        android:textColor="#000" android:textSize="24sp"/>
+                        android:layout_height="wrap_content" android:id="@+id/textViewSurName" android:layout_weight="1"/>
             </LinearLayout>
         </LinearLayout>
+        <TextView
+                android:gravity="center"
+                android:text="8 960 905 99 88"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:id="@+id/textView5"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="30sp"/>
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                       android:orientation="horizontal">
             <TextView
@@ -65,8 +78,10 @@
                     android:layout_margin="5dp"
                     android:text="Moscow"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent" android:id="@+id/textView6"
-                    android:textStyle="bold" android:textColor="#000"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView6"
+                    android:textStyle="bold"
+                    android:textColor="#000"
                     android:textSize="30sp"/>
         </LinearLayout>
         <Button
@@ -77,6 +92,8 @@
                 android:layout_height="wrap_content" android:id="@+id/buttonMyEvents"/>
         <TextView
                 android:layout_margin="20dp"
+                android:textStyle="bold"
+                android:textColor="#000"
                 android:text="Весной 1763 года герцог Этьен Франсуа де Шуазель, ужиная в генуэзском посольстве, допустил оплошность, расхвалив поданные блюда. Посол, желая угодить высокому гостю, предложил герцогу воспользоваться услугами своего повара, пообещав нынче же прислать того в дом вельможи.
 
 Вернувшись с ужина, де Шуазель вызвал своего повара Робера Биньона, и объявил, что с завтрашнего дня кухню возглавит другой кулинар, к которому Робер поступит в подчинение. Не осмелившись спорить, слуга удалился, что бы утром, стиснув зубы, отдать бразды правления генуэзскому коллеге.

@@ -43,6 +43,6 @@ fun pickDateUntilNow(context: Context, listener: (Date) -> Unit) {
     pickDateUntil(context, listener, Calendar.getInstance().time)
 }
 
-fun pickDate(context: Context, listener: (Date) -> Unit, maxDate: Date) {
+fun pickDate(context: Context, listener: (Date) -> Unit) {
     pickDateUntil(context, listener, null)
 }
