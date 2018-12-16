@@ -10,15 +10,14 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class EventsFragment extends Fragment {
-
-    public EventsFragment(){
+public class RouteListFragment extends Fragment {
+    public RouteListFragment(){
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        final View root = inflater.inflate(R.layout.fragment_events, container, false);
+        final View root = inflater.inflate(R.layout.fragment_routes, container, false);
 
         UtilsKt.getRoutes().addOnSuccessListener( routes-> {
             RecyclerView recyclerView = root.findViewById(R.id.recycler_fragment);

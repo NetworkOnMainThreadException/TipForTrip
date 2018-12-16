@@ -3,13 +3,13 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".EventsFragment">
+             tools:context=".RouteListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/recycler_fragment"
-            tools:listitem="@layout/fragment_event_item"
+            tools:listitem="@layout/fragment_route_item"
             android:layout_margin="@dimen/cardview_compat_inset_shadow"
             tools:ignore="PrivateResource"/>
 

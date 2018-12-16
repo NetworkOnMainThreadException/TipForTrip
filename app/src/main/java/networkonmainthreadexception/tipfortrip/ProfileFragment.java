@@ -54,11 +54,11 @@ public class ProfileFragment extends Fragment {
         ImageView imageButton = root.findViewById(R.id.imageProfile);
 
         //Кнопка настройки и обработчик нажатия на эту кнопку
+
         Button buttonSetting = root.findViewById(R.id.buttonSetting);
         buttonSetting.setOnClickListener(v -> {
             pushFragment(getParentFragment().getFragmentManager(), new SettingFragment());
         });
-
         //Кнопка "мои события"
         Button buttonMyEvent = root.findViewById(R.id.buttonMyEvents);
         buttonMyEvent.setOnClickListener(v -> {
